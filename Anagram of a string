@@ -1,0 +1,67 @@
+Problem
+Write a function to check whether two given strings are anagram of each other or not. 
+An anagram of a string is another string that contains the same characters, only the order of characters can be different. 
+For example, “abcd” and “dabc” are an anagram of each other.
+-------------------------------------------------------------------------------------------------------------------------------------------
+Algorithm 
+The problem can be Done in Linear time and constant space. 
+
+We initialize a variable say count to 0.
+Then we take the sum of all the characters of the first String and then decreasing the value of all the characters from the second String.
+If the Count value finally is 0, i.e. before performing any operation then its an anagram, else it is not.
+
+code
+--------------------------------------------------------------------------------------------------------------------------------------------
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+bool anagram(string str1,string str2)
+{
+	
+	if(str1.length()!=str2.length())
+	{
+		return false;
+	}
+	int count =0;
+	//add string to the count 
+	for(int i=0;i<str1.length();i++)
+	{
+		count +=str1[i];
+	}
+	//subtract the count from the second string  count 
+	for(int k=0;k<str2.length();k++)
+	{
+		count -=str2[k];
+		
+	}
+	// if count ==0 then the string is anagram 
+	//else it is not the anagram (ie count<0) or negative count 
+	return (count==0);
+	
+}
+
+
+
+int main()
+{
+  string str1="this";
+  string str2="isht";
+	
+	
+	
+	if(anagram(str1,str2))
+	{
+		cout<<"Yes they are anagram of each other ";
+		
+	}
+	else
+	{
+		cout<<"No they are not the anagram of each other ";
+		
+	}
+	return 0;
+}
+
+Time Complexity: O(N)
+Auxiliary Space: O(1)

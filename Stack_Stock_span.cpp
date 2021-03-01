@@ -69,3 +69,76 @@ int main()
 Time Complexity: O(n). It seems more than O(n) at first look. If we take a closer look, we can observe that every element of the array is added and removed from the stack at most once. So there are total 2n operations at most. Assuming that a stack operation takes O(1) time, we can say that the time complexity is O(n).
 
 Auxiliary Space: O(n) in worst case when all elements are sorted in decreasing order.
+	
+---------------------   ---------------------------------
+ANOTHER GOOD SOLUTION | LINKED WITH GREATEST ELEMENT TYPE
+---------------------   ---------------------------------
+
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> v;
+stack<pair<int,int> > st;//stack(element,index)
+int greatest_left(int arr[],int size)
+{
+	
+		
+
+		for(int i=0;i<size;i++)
+	{
+		if(st.empty()==true)
+		{
+			v.push_back(-1);
+		}
+		else if( !st.empty() && st.top().first>arr[i] )
+		{
+			v.push_back(st.top().second);
+		}
+		else if(!st.empty() && st.top().first<=arr[i])
+		{
+			while(!st.empty() && st.top().first<=arr[i])
+			{
+				st.pop();
+			}
+			if(st.empty()==true)
+			{
+				v.push_back(-1);
+			}
+			else
+			{
+				v.push_back(st.top().second);
+			}
+			
+		}
+		st.push({arr[i],i});
+		
+	}
+  
+}
+
+sub()
+{
+	for(int k=0;k<v.size();k++)
+	{
+		v[k]= k-v[k];
+	}
+	
+}
+int main()
+{
+	int arr[]={100, 80, 60, 70, 60, 75, 85};
+	int size=sizeof(arr)/sizeof(arr[0]);
+
+	
+    greatest_left(arr,size);
+    
+    sub();
+
+	for(int i=0;i<v.size();i++)
+	{
+		cout<<v[i]<<" ";
+	}
+	
+	
+	return 0;
+}

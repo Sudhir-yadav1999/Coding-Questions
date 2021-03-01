@@ -1,4 +1,7 @@
 
+Ques)Find the greatest element on the right now 
+array [4, 5, 2, 25}
+op    [-1,-1,5,-1]       
 
 data Structure
 ---------------
@@ -57,3 +60,4 @@ int main()
 	
 	return 0;
 }
+time complexity -O(n)
